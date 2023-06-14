@@ -1,4 +1,9 @@
+import file_manager
+import parking_spot_manager
+
 def start_process(path):
+    strList = file_manager.read_file(path) # 파일의 경로를 매개변수로 받아 file_manager 모듈의 read_file 함수 호출하여 문자열 리스트 반환받음
+    strList = parking_spot_manager.str_list_to_class_list(strList) # 위의 문자열 리스트를 이용하여 parking_spot_manager 모듈의 str_list_to_class_list 함수로 parking_spot 객체의 리스트로 반환 받음
     while True:
         print("---menu---")
         print("[1] print")
@@ -7,8 +12,7 @@ def start_process(path):
         print("[4] exit")
         select = int(input('type:'))
         if select == 1:
-            print("not implemented yet")
-            # fill this block
+            parking_spot_manager.print_spots(strList) # print_spots 함수 호출 
         elif select == 2:
             print("---filter by---")
             print("[1] name")
@@ -30,7 +34,7 @@ def start_process(path):
                 print("not implemented yet")
                 # fill this block
             elif select == 4:
-                keyword = input('type ptype:')
+                keyword = input('type ptype:')                        
                 print("not implemented yet")
                 # fill this block
             elif select == 5:
@@ -42,7 +46,7 @@ def start_process(path):
                 # fill this block
             else:
                 print("invalid input")
-        elif select == 3:
+        elif select == 3: 
             keywords = ['name', 'city', 'district', 'ptype', 'latitude', 'longitude']
             print("---sort by---")
             print(keywords)
@@ -52,7 +56,7 @@ def start_process(path):
                 # fill this block
             else: print("invalid input")
         elif select == 4:
-            print("not implemented yet")
-            # fill this block
+            print("Exit")
+            break # 반복 종료
         else:
             print("invalid input")
