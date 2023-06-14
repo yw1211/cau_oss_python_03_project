@@ -52,6 +52,10 @@ def filter_by_location(spots, locations): # location을 기준으로 데이터�
     locationList = [i for i in spots if locations[0] < i.get('latitude') and i.get('latitude') < locations[1] and locations[2] < i.get('longitude') and i.get('longitude') < locations[3]]
     return locationList # filter_by_location 함수는 정용희 학우님의 코드를 참고하였습니다. 
 
+def sort_by_keyword(spots, keyword): # parking_spot 클래스 객체의 리스트[spots]와 정렬기준[keyword]을 매개변수로 받아 정렬 수행
+    sortSpot = sorted(spots, key=lambda spot: spot.get(keyword)) # sorted 함수 사용하여 정렬
+    return sortSpot
+
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 # if __name__ == '__main__':
     # print("Testing the module...")
