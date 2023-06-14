@@ -32,6 +32,26 @@ def print_spots(spots): #parking_spot 클래스 객체의 리스트[spots]를 �
     for i in spots:
         print(i)
 
+def filter_by_name(spots, name): # name을 기준으로 데이터를 필터링하는 함수
+    nameList = [i for i in spots if name in i.get('name')]
+    return nameList 
+
+def filter_by_city(spots, city): # city를 기준으로 데이터를 필터링하는 함수
+    cityList = [i for i in spots if city in i.get('city')]
+    return cityList
+
+def filter_by_district(spots, district): # distrcit를 기준으로 데이터를 필터링하는 함수
+    districtList = [i for i in spots if district in i.get('district')]
+    return districtList
+
+def filter_by_ptype(spots, ptype): # ptype을 기준으로 데이터를 필터링하는 함수
+    ptypeList = [i for i in spots if ptype in i.get('ptype')]
+    return ptypeList
+
+def filter_by_location(spots, locations): # location을 기준으로 데이터를 필터링하는 함수
+    locationList = [i for i in spots if locations[0] < i.get('latitude') and i.get('latitude') < locations[1] and locations[2] < i.get('longitude') and i.get('longitude') < locations[3]]
+    return locationList # filter_by_location 함수는 정용희 학우님의 코드를 참고하였습니다. 
+
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 # if __name__ == '__main__':
     # print("Testing the module...")

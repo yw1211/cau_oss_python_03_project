@@ -23,27 +23,23 @@ def start_process(path):
             select = int(input('type:'))
             if select == 1:
                 keyword = input('type name:')
-                print("not implemented yet")
-                # fill this block
+                strList = parking_spot_manager.filter_by_name(strList, keyword) # 입력 받은 keyword를 함수의 인수로 사용
             elif select == 2:
                 keyword = input('type city:')
-                print("not implemented yet")
-                # fill this block
+                strList = parking_spot_manager.filter_by_city(strList, keyword) # 입력 받은 keyword를 함수의 인수로 사용
             elif select == 3:
                 keyword = input('type district:')
-                print("not implemented yet")
-                # fill this block
+                strList = parking_spot_manager.filter_by_district(strList, keyword) # 입력 받은 keyword를 함수의 인수로 사용
             elif select == 4:
-                keyword = input('type ptype:')                        
-                print("not implemented yet")
-                # fill this block
+                keyword = input('type ptype:')
+                strList = parking_spot_manager.filter_by_ptype(strList, keyword) # 입력 받은 keyword를 함수의 인수로 사용              
             elif select == 5:
                 min_lat = float(input('type min lat:'))
                 max_lat = float(input('type max lat:'))
                 min_lon = float(input('type min long:'))
                 max_lon = float(input('type max long:'))
-                print("not implemented yet")
-                # fill this block
+                locations = (min_lat, max_lat, min_lon, max_lon)
+                strList = parking_spot_manager.filter_by_location(strList, locations) # 입력 받은 locations를 함수의 인수로 사용
             else:
                 print("invalid input")
         elif select == 3: 
